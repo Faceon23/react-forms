@@ -4,7 +4,7 @@ import "./App.css"
 
 function App() {
   const [formSubmitted, setFormSubmitted] = useState(false)
-  const [validForm,setValidForm] = useState(false)
+  const [validForm, setValidForm] = useState(false)
   const [errorMessage, setErrorMessage] = useState("")
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
@@ -12,25 +12,23 @@ function App() {
 
   useEffect(() => {
     if (title.length > 3 && description.length > 10) {
-      setValidForm(true);
+      setValidForm(true)
     } else {
-      setValidForm(false);
+      setValidForm(false)
     }
     console.log("Wow! Something changed")
-  },[title,description,author]);
+  }, [title, description, author])
 
   // console.log(title)
   // console.log(description) async (e)
 
-  // const formSubmit = asy
-
   async function FormSubmit(e) {
-      e.preventDefault()
+    e.preventDefault()
 
-      if (!validForm) {
-        setErrorMessage("Not a valid form")
-        return
-      } 
+    if (!validForm) {
+      setErrorMessage("Not a valid form")
+      return
+    }
 
     try {
     } catch (error) {
@@ -51,10 +49,10 @@ function App() {
       description,
       author,
     }
-    setErrorMessage("");
-    setFormSubmitted(true);
-    alert("Wow Submitted");
-    setValidForm(true);
+    setErrorMessage("")
+    setFormSubmitted(true)
+    alert("Wow Submitted")
+    setValidForm(true)
 
     console.log("form submitted with", comment)
     // really submit to an api
@@ -65,7 +63,7 @@ function App() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(comment),
-    });
+    })
 
     console.log(results)
     const data = await results.json()
@@ -80,7 +78,7 @@ function App() {
         {/* here goes the title */}
         <label>Title </label>
         <input
-        // required
+          // required
           type="text"
           value={title}
           onChange={(e) => {
@@ -117,7 +115,8 @@ function App() {
         {!formSubmitted && <button>Submit Form</button>}
         {!errorMessage && (
           <h1>
-            There was an error: Not a valid form<br />
+            There was an error: Not a valid form
+            <br />
             {errorMessage}
           </h1>
         )}
