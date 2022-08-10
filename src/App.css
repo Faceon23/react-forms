@@ -1,3 +1,5 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
 /* create new blog form */
 form {
   max-width: 400px;
@@ -31,6 +33,6 @@ button {
   cursor: pointer;
 }
 
-.button:active {
+button:active {
   background-color: blue;
 }
